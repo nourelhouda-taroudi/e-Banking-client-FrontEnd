@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, Routes } from '@angular/router';
+<<<<<<< HEAD
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { AcceuilModule } from './acceuil/acceuil.module';
@@ -39,3 +40,23 @@ const routes:Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [ForgotPasswordComponent,AcceuilComponent,HistoriqueComponent,CreanciersComponent,PaymentComponent]
+=======
+import { ClientHomeComponent } from './client-home/client-home.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { MenuComponent } from './menu/menu.component';
+import { ProfileComponent } from './profile/profile.component';
+
+const routes: Routes= [
+  { path: 'Authentification', component: AuthentificationComponent},
+  { path: 'ClientHome', component: ClientHomeComponent},
+  { path: 'Menu', component: MenuComponent},
+  { path: 'Profile', component: ProfileComponent}
+];
+
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+export class AppRoutingModule { }
+export const routingComponents = [AuthentificationComponent, ClientHomeComponent,MenuComponent,ProfileComponent];
+>>>>>>> 483264c614a78b9526dfd67629ab583d29a5b0a7
