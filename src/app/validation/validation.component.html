@@ -1,0 +1,52 @@
+<app-menu></app-menu>
+<div class="all">
+<h1> Paiement de facture</h1>
+
+<div class="societe">
+    <h2 style="color: gray">Paiement par reference</h2><br/>
+<div class="top">
+    <div >
+        <img src="{{agence.image}}"  class="img"> 
+        
+  
+    </div>
+    <div class="content">
+      <h3>Creancier</h3>
+      <p>{{agence.nom}}</p>
+        
+  
+    </div>
+    <div class="content" >
+        <h3>Creance</h3>
+        <p>{{agence.facturation}}</p>
+          
+    
+      </div>
+      <div class="content">
+        <h3>Donateur</h3>
+        <p></p>
+          
+    
+      </div>
+</div>
+
+
+   <div ><h2 style="color: gray">Selectionner pour payer</h2><br/></div>
+
+
+<div class="class" >
+
+    <span style="margin-left: 40px">{{agence.facturation}}</span>
+    <span style="margin-left: 1000px">10.00 DH</span>
+</div>
+
+<div style="margin-top: 40px">
+    <span style="margin-left: 40px">Total</span>
+    <span style="margin-left: 1000px">{{messageEvent}}</span>
+</div>
+
+<button >Valider</button>
+   
+</div>
+
+</div>

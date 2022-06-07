@@ -2,7 +2,7 @@
     border: solid 1px rgb(221, 212, 212) ;
     width: 600px;
     height: 200px;
-
+    margin-bottom: 30px;
     display: flex;
 }
 
@@ -11,11 +11,13 @@
     margin-left: 20px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+ 
 }
 .img{
-    margin-top: 60px;
-    width:150px ;
-    height:70px;
+    margin-top: 50px;
+    width:170px ;
+    height:100px;
     margin-left: 40px;
 }
 a {
@@ -28,4 +30,8 @@ a {
   }
   .link:hover{
       text-decoration: underline;
+  }
+
+  .header{
+      display: flex;
   }
