@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 import { PaymentComponent } from './payment/payment.component';
-
+import { HttpClientModule} from '@angular/common/http'
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FormsModule } from '@angular/forms';
+import { ValidationComponent } from './validation/validation.component';
 
 
 @NgModule({
@@ -19,12 +21,16 @@ import { ProfileComponent } from './profile/profile.component';
     PaymentComponent,
     routingComponents,
     MenuComponent,
-    ProfileComponent
+    ProfileComponent,
+    ValidationComponent,
+    
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,52 +1,27 @@
 <app-menu></app-menu>
-
-<select name="pets" id="pet-select" style="width: 1300px; height: 25px; margin-top: 50px; margin-left: 70px;">
-    <option value="">Tous les categories</option>
-    <option value="dog">telephone</option>
-    <option value="cat">wifi</option>
+<div class="header">
+<select name="pets" id="pet-select" style="width: 1100px; height: 25px; margin-top: 50px; margin-left: 70px;"  (change)="onChange($event)">
+    <option value="" >Tous les categories</option>
+    <option  *ngFor=" let agence of agences" [value]="agence.choix">{{agence.choix}}</option>
+  
    
 </select>
-
-<div class="big">
-    <div class="societe">
-        <div style="width: 200px;">
-            <img src="./../../assets/maroc.png"  class="img"> 
-        </div>
-        <div style="margin-top: 40px; margin-left:60px;">
-            <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">IAM REGARGES</p>
-            <a style="font-size: 13px; ">	>TELEPHONE ET INTERNET SIM</a>
-        </div>
-    </div>
-
-    <div class="societe">
-        <div style="width: 200px;">
-            <img src="./../../assets/maroc.png"  class="img"> 
-        </div>
-        <div style="margin-top: 40px; margin-left:60px;">
-            <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">IAM REGARGES</p>
-            <a style="font-size: 13px; " class="link" routerLink="/payment">	>TELEPHONE ET INTERNET SIM</a>
-        </div>
-    </div>
+<form class="form-inline my-2 my-lg-0" style="margin-top: 50px; margin-left: 50px;">
+    <input type="search" (ngModelChange)="searchFacture(key.value)"  ngModel #key="ngModel" 
+     name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+ </form>
 </div>
 
 <div class="big">
-    <div class="societe">
-        <div style="width: 200px;">
-            <img src="./../../assets/maroc.png"  class="img"> 
-        </div>
-        <div style="margin-top: 40px; margin-left:60px;">
-            <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">IAM REGARGES</p>
-            <a style="font-size: 13px; ">	>TELEPHONE ET INTERNET SIM</a>
-        </div>
-    </div>
-
-    <div class="societe">
-        <div style="width: 200px;">
-            <img src="./../../assets/maroc.png"  class="img"> 
-        </div>
-        <div style="margin-top: 40px; margin-left:60px;">
-            <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">IAM REGARGES</p>
-            <a style="font-size: 13px; ">	>TELEPHONE ET INTERNET SIM</a>
+    <div class="big">
+        <div class="societe" *ngFor=" let agence of agences">
+            <div style="width: 200px;">
+                <img src="{{agence.image}}"  class="img"> 
+            </div>
+            <div style="margin-top: 40px; margin-left:60px;">
+                <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">{{agence.description}}</p>
+                <a style="font-size: 13px; " class="link" (click)="navigateTo(agence)" >   >{{agence.facturation}}</a>
+            </div>
         </div>
     </div>
 </div>

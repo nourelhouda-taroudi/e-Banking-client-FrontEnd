@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HistoriqueComponent } from './historique/historique.component';
 import { CreanciersComponent } from './creanciers/creanciers.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ValidationComponent } from './validation/validation.component';
 
 const routes: Routes= [
   { path: 'Authentification', component: AuthentificationComponent},
@@ -26,7 +27,10 @@ const routes: Routes= [
   path: 'creanciers' ,   component: CreanciersComponent
 },
 { 
-  path: 'payment' ,   component: PaymentComponent
+  path: 'payment/:id' ,   component: PaymentComponent
+},
+{ 
+  path: 'validation/:id' ,   component: ValidationComponent
 },
 ];
 
@@ -35,5 +39,14 @@ const routes: Routes= [
     exports: [RouterModule]
   })
 export class AppRoutingModule { }
-export const routingComponents = [AuthentificationComponent, ClientHomeComponent,MenuComponent,ProfileComponent,HistoriqueComponent,PaymentComponent,CreanciersComponent];
+export const routingComponents = [
+  AuthentificationComponent,
+   ClientHomeComponent,
+   MenuComponent,
+   ProfileComponent,
+   HistoriqueComponent,
+   PaymentComponent,
+   CreanciersComponent,
+  ValidationComponent
+  ];
 

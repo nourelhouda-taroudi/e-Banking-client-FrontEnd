@@ -3,16 +3,20 @@
     <div id="container">
         <!-- zone de connexion -->
         
-        <form action="/updatePassword" >
+        <form action="login"  #loginform="ngForm"  (ngSubmit)="loginUser()"> 
             <h1>Authentification</h1>
+
+           
             
             <label><b>Login</b></label>
-            <input type="text" placeholder="Enter your login" name="username" required>
+            <input type="text" placeholder="Enter your login" name="email" required [(ngModel)]="client.email"  >
 
             <label><b>Password</b></label>
-            <input type="password" placeholder="Enter your password" name="password" required>
-
-            <input type="submit" id='submit' value='LOGIN' >
+            <input type="password" placeholder="Enter your password" name="password" required [(ngModel)]="client.password" ><br/>
+            <small class="danger">{{message}}</small><br/>
+            
+                <button    class="btn btn-outline-success" type="submit" >S'inscrire</button>
+         
             
         </form>
     </div>
