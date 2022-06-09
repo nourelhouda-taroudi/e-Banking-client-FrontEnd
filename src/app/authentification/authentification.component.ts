@@ -62,20 +62,8 @@ export class AuthentificationComponent implements OnInit {
         error =>{
 
         console.log("erruer"),
-        this.message="Bad credentials please enter a valid email and password";
+        this.message="Please enter a valid email and password !";
       }
 
       )
-    }
-
-  
-
-  
-
-   
- 
-  
-    }
-  
-
-  
+    }}

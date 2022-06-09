@@ -1,56 +1,32 @@
-
-
-#container{
-    width:40%;
-    margin:0 auto;
-    margin-top:15%;
-}
-/* Bordered form */
-form {
-    width:100%;
-    padding: 30px;
-    border: 1px solid #f1f1f1;
-    background: #fff;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-#container h1{
-    width: 40%;
-    text-align: center;
-    padding-bottom: 10px;
-    color: #e67e22;
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
     
-}
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+    }
+    h1{
+	
+        color: #e65d22; font-family: 'Rouge Script', cursive; font-size: 80px; font-weight: normal; line-height: 100px;  text-shadow: 1px 1px 2px #082b34;
+        margin-bottom: 50px;
+    }
+    .danger{
+        color:red;
 
-/* Full-width inputs */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-
-}
-
-/* Set a style for all buttons */
-input[type=submit] {
-    background-color: #89d3e1;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-}
-input[type=submit]:hover {
-    background-color: white;
-    color: #e67e22;
-    border: 1px solid #e67e22;
-    font-weight: bold;
-}
-
-.danger{
-    color: red;
-    font-size: 15px;
-}
+        
+    }
