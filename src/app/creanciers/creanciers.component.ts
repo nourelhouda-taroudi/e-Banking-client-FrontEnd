@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { agences } from '../config/agences';
+import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';

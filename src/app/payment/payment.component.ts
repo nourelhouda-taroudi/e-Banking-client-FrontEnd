@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { agences } from '../config/agences';
+import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
 import { ValidationComponent } from '../validation/validation.component';
 

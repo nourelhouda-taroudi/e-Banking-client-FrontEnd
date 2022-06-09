@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Optional } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { agences } from '../config/agences';
+import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
 import { PaymentComponent } from '../payment/payment.component';
 
@@ -13,7 +13,10 @@ export class ValidationComponent implements OnInit {
   @Input('agence') agence!: agences;
    event!:string;
    payment !: PaymentComponent;
-  private data1:any;
+  public data1!:{
+    first:string,
+    second:string
+  } 
   constructor(
     @Optional() private route : ActivatedRoute,
    @Optional() private service:AgencesService) { }
@@ -39,14 +42,20 @@ export class ValidationComponent implements OnInit {
     )
 
   }
-  messageEvent = new EventEmitter<string>();
+
   public save(data : any){
 
     console.log(data)
  
-    this.data1=Object.values(data)[0]
+    this.data1={
+
+      first: `${Object.values(data)[0]}`,
+      second: `${Object.values(data)[1]}`,
+
+    }
+    
     console.log("data 1 is "+ this.data1)
-   console.log( this.messageEvent.emit(this.data1))
+ 
 
    }
   

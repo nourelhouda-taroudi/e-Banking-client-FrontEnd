@@ -2,7 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { agences } from '../config/agences';
+import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
 import { Client } from '../creanciers/Client';
 import { search } from './search';
