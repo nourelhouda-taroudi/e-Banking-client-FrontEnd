@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div  class="div">
+<h1>
+    Demande de virement 
+</h1>
+<form  #form="ngForm" (submit)="save(form.value)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">N de votre compte</label>
+      <input type="string"  ngModel name="account1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+     
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">N de compte de destinataire</label>
+      <input type="string" class="form-control" id="exampleInputPassword1"  ngModel name="account2">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Montant a transferer</label>
+        <input type="number" class="form-control" id="exampleInputPassword1"  ngModel name="amount">
+      </div>
+
+      <div style="width: 200px"   id="code">
+        <label for="inputPassword5" class="form-label">Veuillez entrer votre code</label>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+        </div>
+   
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</div>
+
+
+
+
+
+
+

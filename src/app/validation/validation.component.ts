@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
 import { PaymentComponent } from '../payment/payment.component';
+import { ClientService } from '../config/client.service';
+import { Client } from '../model/client.model';
+import { AccountsService } from '../config/account.service';
 
 @Component({
   selector: 'app-validation',
@@ -11,15 +14,25 @@ import { PaymentComponent } from '../payment/payment.component';
 })
 export class ValidationComponent implements OnInit {
   @Input('agence') agence!: agences;
-   event!:string;
+
    payment !: PaymentComponent;
   public data1!:{
     first:string,
     second:string
   } 
+
+  client: Client={
+    name: '',
+    email: ''
+  }
   constructor(
     @Optional() private route : ActivatedRoute,
-   @Optional() private service:AgencesService) { }
+   @Optional() private service:AgencesService,
+   private clientService:ClientService,
+   public accountservice:AccountsService
+) { }
+
+
 
 
   ngOnInit(): void {
@@ -53,6 +66,25 @@ export class ValidationComponent implements OnInit {
       second: `${Object.values(data)[1]}`,
 
     }
+
+    this.clientService.getClientByName(this.data1.first).subscribe(
+      (response: {}) =>{
+        console.log("client"+ Object.values(response) )
+
+     this.client={
+       name:`${Object.values(response)[0]}`,
+       email:`${Object.values(response)[1]}`
+     }
+
+        this.accountservice.getAccountByClient(1).subscribe((resp :{}) =>
+        console.log(Object.values(resp)[1])
+          )
+
+          
+
+       
+      }
+    )
     
     console.log("data 1 is "+ this.data1)
  

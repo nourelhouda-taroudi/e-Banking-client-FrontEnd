@@ -19,7 +19,7 @@ export class AgencesService {
   
   
 public loginUser(client :Client): Observable<any>{
-  return this.http.post<any>('http://localhost:8090/users/login',client);
+  return this.http.post<any>('http://localhost:8090/',client);
 
 }
 

@@ -6,22 +6,26 @@ import { ClientHomeComponent } from './client-home/client-home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 import { HistoriqueComponent } from './historique/historique.component';
 import { CreanciersComponent } from './creanciers/creanciers.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ValidationComponent } from './validation/validation.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { TransferComponent } from './transfer/transfer.component';
+import { AddAccountComponent } from './add-account/add-account.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes= [
   { path: 'Authentification', component: AuthentificationComponent},
   { path: '', component: ClientHomeComponent},
   { path: 'Menu', component: MenuComponent},
   { path: 'Profile', component: ProfileComponent},
-  {path: 'updatePassword' ,   component: ForgotPasswordComponent},
+  {path: 'updatePassword' ,   component: ChangePasswordComponent},
 
 
 { 
-  path: 'historique' ,   component: HistoriqueComponent
+  path: 'historique/:id' ,   component: HistoriqueComponent
 },
 { 
   path: 'creanciers' ,   component: CreanciersComponent
@@ -31,6 +35,17 @@ const routes: Routes= [
 },
 { 
   path: 'validation/:id' ,   component: ValidationComponent
+},
+
+{ 
+  path: 'transfer' ,   component: TransferComponent
+},
+{ 
+  path: 'add_account' ,   component: AddAccountComponent
+},
+
+{ 
+  path: 'accounts' ,   component: AccountsComponent
 },
 ];
 

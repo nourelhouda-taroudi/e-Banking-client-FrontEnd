@@ -4,7 +4,7 @@ import { AppRoutingModule,routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 import { PaymentComponent } from './payment/payment.component';
 import { HttpClientModule} from '@angular/common/http'
@@ -12,17 +12,24 @@ import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ValidationComponent } from './validation/validation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TransferComponent } from './transfer/transfer.component';
+import { AddAccountComponent } from './add-account/add-account.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ForgotPasswordComponent,
+
     PaymentComponent,
     routingComponents,
     MenuComponent,
     ProfileComponent,
     ValidationComponent,
+    TransferComponent,
+    AddAccountComponent,
+    AccountsComponent,
     
 
   ],
@@ -30,7 +37,8 @@ import { ValidationComponent } from './validation/validation.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

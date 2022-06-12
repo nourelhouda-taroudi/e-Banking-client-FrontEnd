@@ -39,43 +39,32 @@ export class AuthentificationComponent implements OnInit {
   
     }
 
-    public loginUser(){
-      this.agenceService.loginUser(this.client).subscribe(
-        data => {
-         this.agenceService.checkPass(this.client).subscribe(
-              data1 => {
-                this.route.navigate(['/updatePassword'])
-                console.log("response received")
-              },
-              error =>{
+    // public loginUser(){
+    //   this.agenceService.loginUser(this.client).subscribe(
+    //     data => {
+    //      this.agenceService.checkPass(this.client).subscribe(
+    //           data1 => {
+    //             this.route.navigate(['/updatePassword'])
+    //             console.log("response received")
+    //           },
+    //           error =>{
 
-                console.log("erruer"),
-                this.route.navigate(['/creanciers'])
-              }
+    //             console.log("erruer"),
+    //             this.route.navigate(['/creanciers'])
+    //           }
             
-         )
+    //      )
 
          
-          console.log("response received")
-        },
+    //       console.log("response received")
+    //     },
        
-        error =>{
+    //     error =>{
 
-        console.log("erruer"),
-        this.message="Bad credentials please enter a valid email and password";
-      }
+    //     console.log("erruer"),
+    //     this.message="Please enter a valid email and password !";
+    //   }
 
-      )
-    }
-
-  
-
-  
-
-   
- 
-  
-    }
-  
-
-  
+    //   )
+    // }}
+  }

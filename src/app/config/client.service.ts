@@ -11,16 +11,27 @@ import { Client } from '../creanciers/Client';
 export class ClientService {
   constructor(private http:HttpClient) { }
 
-  public getCustomers():Observable<Array<Client>>{
+  public getClient():Observable<Array<Client>>{
     return this.http.get<Array<Client>>(environment.backendHost+"/customers")
   }
-  public searchCustomers(keyword : string):Observable<Array<Client>>{
+
+  
+  public searchClient(keyword : string):Observable<Array<Client>>{
     return this.http.get<Array<Client>>(environment.backendHost+"/customers/search?keyword="+keyword)
   }
-  public saveCustomer(customer: Client):Observable<Client>{
+  public saveClient(customer: Client):Observable<Client>{
     return this.http.post<Client>(environment.backendHost+"/customers",customer);
   }
-  public deleteCustomer(id: number){
+  
+  public deleteClient(id: number){
     return this.http.delete(environment.backendHost+"/customers/"+id);
+  }
+
+  public getClientById(id :any):Observable<Client>{
+    return this.http.get<Client>(`http://localhost:8090/client/${id}`)
+  }
+
+  public getClientByName(name :any):Observable<Client>{
+    return this.http.get<Client>(`http://localhost:8090/client/${name}`)
   }
 }

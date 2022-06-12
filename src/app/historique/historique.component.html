@@ -1,3 +1,34 @@
 
 <app-menu></app-menu>
 
+
+<h1> Vos transactions</h1>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date de transaction</th>
+        <th scope="col">Type de transactions</th>
+        <th scope="col">Montant </th>
+   
+      
+      </tr>
+    </thead>
+    <tbody>
+   
+      <tr  *ngFor="let account of operations"  >
+        <th scope="row"  >{{account.operationDate}}</th>
+        <th scope="row"  >{{account.type}}</th>
+        <td  >{{account.amount}}</td>
+        
+
+        
+       
+     
+      
+      </tr>
+
+     
+    </tbody>
+  </table>

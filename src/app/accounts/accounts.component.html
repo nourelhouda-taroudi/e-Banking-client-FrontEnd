@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+
+<h1> Mes comptes</h1>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Rib</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Consulter </th>
+   
+      
+      </tr>
+    </thead>
+    <tbody>
+   
+      <tr  *ngFor="let account of accounts"  >
+    
+        <th scope="row"  >{{account.rib}}</th>
+        <td  >{{account.balance}}</td>
+        <td>    
+            <button (click)="navigateTo(account)"> Voir les operations</button>
+        </td>
+
+        
+       
+     
+      
+      </tr>
+
+     
+    </tbody>
+  </table>
+

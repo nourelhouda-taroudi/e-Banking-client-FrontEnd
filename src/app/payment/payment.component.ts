@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
 import { ValidationComponent } from '../validation/validation.component';
+import { AccountsService } from '../config/account.service';
+import { ClientService } from '../config/client.service';
 
 @Component({
   selector: 'app-payment',
@@ -20,9 +22,9 @@ export class PaymentComponent implements OnInit {
 
   }
  var!:ValidationComponent;
-  foo:ValidationComponent = new ValidationComponent(this.route,this.service);
+  foo:ValidationComponent = new ValidationComponent(this.route,this.service,this.service2,this.service1);
   public data1: any;
-  constructor(private route :ActivatedRoute , private service: AgencesService, private router : Router) {}
+  constructor(private route :ActivatedRoute , private service: AgencesService, private router : Router,private service1: AccountsService,private service2:ClientService) {}
   @Input('agence') agence!: agences;
   ngOnInit(): void {
     this.route.paramMap.subscribe((parameterMap) => {
