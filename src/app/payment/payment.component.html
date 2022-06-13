@@ -1,26 +1,58 @@
 <app-menu></app-menu>
-
-<h1>Start your payement</h1>
-
-<div class="societe">
-  
-    <div style="width: 200px;">
-        <img src="{{agence.image}}"  class="img"> 
+<section class="h-100 gradient-form" style="background-color: rgba(24, 72, 215, 0.163);">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+    
+                    <div class="text-center">
+                    <h1 style="color:red;margin-bottom:40px;">Begin your transfer </h1>
+                    
+                    </div>
+    
+                    <form action="/creanciers">
+                    
+    
+                    <div class="form-outline mb-4">
+                        
+                        <input type="password" id="form2Example22" class="form-control" 
+                            placeholder=" Distination RIB" required />
         
-        <p>{{agence.description}}</p>
-    </div>
-    <form   #payment="ngForm"  (ngSubmit)="this.foo.save(payment.value)"  (submit)="navigateTo(agence)">
-    <div style="margin-top: 40px; " class="inputs">
-        
-        <input type="text" placeholder="Nom et prenom du donateur" name="name" ngModel ><br/>
-        <input type="text" placeholder="Montant du don (DH)"  name="don" ngModel><br/>
-        <div class="button">
-            <button>Annuler</button>
-  
-           
+                    </div>
+                    <div class="form-outline mb-4">
+                        
+                      <input type="password" id="form2Example22" class="form-control" 
+                          placeholder=" Amount" required />
+      
+                  </div>
+                
+    
+                    <div class="text-center pt-1 mb-5 pb-1">
+                       
+                      <button class="btn btn-outline-danger" type="submit">Continue</button>
+                        
+                    </div>
+    
+                </form>
+
+            </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <img src="../../assets/logoo.png"/>
+            </div>
+            </div>
         </div>
-  
-        <input type="submit" value="here" > 
+        </div>
     </div>
-</form>
+    </div>
 </div>
+</section>
+
+
+    
+    
+  

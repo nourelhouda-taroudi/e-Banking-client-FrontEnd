@@ -31,7 +31,7 @@ const routes: Routes= [
   path: 'creanciers' ,   component: CreanciersComponent
 },
 { 
-  path: 'payment/:id' ,   component: PaymentComponent
+  path: 'virment' ,   component: PaymentComponent
 },
 { 
   path: 'validation/:id' ,   component: ValidationComponent
