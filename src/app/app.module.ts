@@ -13,6 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ValidationComponent } from './validation/validation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClientAuthService } from './services/client-auth.service';
+import { ClientService } from './services/client.service';
 
 
 @NgModule({
@@ -34,7 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [ClientAuthService,ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
