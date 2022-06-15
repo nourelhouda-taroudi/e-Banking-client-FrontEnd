@@ -11,6 +11,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { CreanciersComponent } from './creanciers/creanciers.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ValidationComponent } from './validation/validation.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 const routes: Routes= [
   { path: 'Authentification', component: AuthentificationComponent},
@@ -27,7 +28,7 @@ const routes: Routes= [
   path: 'creanciers' ,   component: CreanciersComponent
 },
 { 
-  path: 'virment' ,   component: PaymentComponent
+  path: 'transfer' ,   component: TransferComponent
 },
 { 
   path: 'validation/:id' ,   component: ValidationComponent
@@ -45,7 +46,7 @@ export const routingComponents = [
    MenuComponent,
    ProfileComponent,
    HistoriqueComponent,
-   PaymentComponent,
+   TransferComponent,
    CreanciersComponent,
   ValidationComponent
   ];

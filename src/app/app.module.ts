@@ -15,6 +15,7 @@ import { ValidationComponent } from './validation/validation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientAuthService } from './services/client-auth.service';
 import { ClientService } from './services/client.service';
+import { TransferComponent } from './transfer/transfer.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ClientService } from './services/client.service';
     MenuComponent,
     ProfileComponent,
     ValidationComponent,
+    TransferComponent,
     
 
   ],
