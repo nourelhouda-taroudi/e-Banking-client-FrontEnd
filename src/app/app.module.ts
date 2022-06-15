@@ -16,6 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransferComponent } from './transfer/transfer.component';
 import { AddAccountComponent } from './add-account/add-account.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import { ClientAuthService } from './services/client-auth.service';
+import { ClientService } from './services/client.service';
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { AccountsComponent } from './accounts/accounts.component';
     FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [ClientAuthService,ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

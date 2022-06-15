@@ -1,3 +1,4 @@
+import { ClientAuthService } from './../services/client-auth.service';
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -6,6 +7,7 @@ import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
 import { Client } from '../creanciers/Client';
 import { search } from './search';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-authentification',
@@ -19,7 +21,7 @@ export class AuthentificationComponent implements OnInit {
   message='';
   public search : search = new search();
 
-  constructor(private agenceService:  AgencesService, private route :Router) { }
+  constructor(private agenceService:  AgencesService,private clientservice:ClientService  ,private userAuthService:ClientAuthService,private route :Router) { }
   
   public agences!: agences[];
 
@@ -66,5 +68,23 @@ export class AuthentificationComponent implements OnInit {
     //   }
 
     //   )
-    // }}
+    // }
+    login(homeform: NgForm){
+            this.clientservice.login(homeform.value).subscribe(
+              (response: any) => {
+              
+        
+                const role = response.roles[0];
+                if (role === 'ROLE_CLIENT') {
+                  this.route.navigate(['/Profile']);
+                } else {
+                  this.route.navigate(['/Authentification']);
+                }
+                console.log(this.userAuthService.getToken());
+              },
+              (error) => {
+                console.log(error);
+              }
+            );
+    }
   }
