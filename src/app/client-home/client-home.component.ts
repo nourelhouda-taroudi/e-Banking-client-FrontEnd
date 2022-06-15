@@ -1,3 +1,4 @@
+import { ClientAuthService } from './../services/client-auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private client:ClientAuthService) { }
 
   ngOnInit(): void {
   }
-
+  test(){
+    console.log(this.client.getToken());
+  }
 }
