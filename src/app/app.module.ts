@@ -13,11 +13,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ValidationComponent } from './validation/validation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TransferComponent } from './transfer/transfer.component';
+
 import { AddAccountComponent } from './add-account/add-account.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { ClientAuthService } from './services/client-auth.service';
 import { ClientService } from './services/client.service';
+import { TransferComponent } from './transfer/transfer.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -42,7 +44,7 @@ import { ClientService } from './services/client.service';
     FormsModule,
     NgbModule
   ],
-  providers: [ClientAuthService,ClientService],
+  providers: [ClientAuthService,ClientService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -34,30 +34,8 @@ export class TransferComponent implements OnInit {
     
             
       }
-
-    
-
-    
-
-    
-
  
          }
-     
-
-    
-
-
-
- 
-
-  
-  
-     
-
-
- 
-     
     
    
     )

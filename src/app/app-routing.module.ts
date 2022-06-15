@@ -15,37 +15,58 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { TransferComponent } from './transfer/transfer.component';
 import { AddAccountComponent } from './add-account/add-account.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes= [
   { path: 'Authentification', component: AuthentificationComponent},
+
   { path: '', component: ClientHomeComponent},
-  { path: 'Menu', component: MenuComponent},
-  { path: 'Profile', component: ProfileComponent},
-  {path: 'updatePassword' ,   component: ChangePasswordComponent},
+
+  { path: 'Menu', component: MenuComponent,
+  canActivate:[AuthGuard]},
+
+  { path: 'Profile', component: ProfileComponent,
+  canActivate:[AuthGuard],
+
+
+},
+
+
+  {path: 'updatePassword' ,   component: ChangePasswordComponent,
+  canActivate:[AuthGuard]},
+
+
 
 
 { 
-  path: 'historique/:id' ,   component: HistoriqueComponent
+  path: 'historique/:id' ,   component: HistoriqueComponent,
+  canActivate:[AuthGuard]
 },
 { 
-  path: 'creanciers' ,   component: CreanciersComponent
+  path: 'creanciers' ,   component: CreanciersComponent,
+  canActivate:[AuthGuard]
 },
 { 
-  path: 'virment' ,   component: PaymentComponent
+  path: 'transfer' ,   component: TransferComponent,
+  canActivate:[AuthGuard]
 },
 { 
-  path: 'validation/:id' ,   component: ValidationComponent
-},
-
-{ 
-  path: 'transfer' ,   component: TransferComponent
-},
-{ 
-  path: 'add_account' ,   component: AddAccountComponent
+  path: 'validation/:id' ,   component: ValidationComponent,
+  canActivate:[AuthGuard]
 },
 
 { 
-  path: 'accounts' ,   component: AccountsComponent
+  path: 'transfer' ,   component: TransferComponent,
+  canActivate:[AuthGuard]
+},
+{ 
+  path: 'add_account' ,   component: AddAccountComponent,
+  canActivate:[AuthGuard]
+},
+
+{ 
+  path: 'accounts' ,   component: AccountsComponent,
+  canActivate:[AuthGuard]
 },
 ];
 
@@ -60,7 +81,7 @@ export const routingComponents = [
    MenuComponent,
    ProfileComponent,
    HistoriqueComponent,
-   PaymentComponent,
+   TransferComponent,
    CreanciersComponent,
   ValidationComponent
   ];

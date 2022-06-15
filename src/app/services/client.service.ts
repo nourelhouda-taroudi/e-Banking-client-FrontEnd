@@ -1,5 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { AuthService } from '../config/auth.service';
 import { ClientAuthService } from './client-auth.service';
 
 @Injectable({
@@ -7,11 +9,12 @@ import { ClientAuthService } from './client-auth.service';
 })
 export class ClientService {
   PATH_OF_API = 'http://localhost:8090';
-
+  private loggedIn = new BehaviorSubject<boolean>(this.token.loggedIn());
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
   constructor(
     private httpclient: HttpClient,
-    private userAuthService: ClientAuthService
+    private userAuthService: ClientAuthService,
+    private token : AuthService
   ) {}
 
   public login(loginData: any) {
@@ -20,4 +23,6 @@ export class ClientService {
       headers: this.requestHeader,
     });
   }
+
+  
 }

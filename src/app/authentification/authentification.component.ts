@@ -8,6 +8,7 @@ import { AgencesService } from '../config/agences.service';
 import { Client } from '../creanciers/Client';
 import { search } from './search';
 import { ClientService } from '../services/client.service';
+import { AuthService } from '../config/auth.service';
 
 @Component({
   selector: 'app-authentification',
@@ -21,7 +22,11 @@ export class AuthentificationComponent implements OnInit {
   message='';
   public search : search = new search();
 
-  constructor(private agenceService:  AgencesService,private clientservice:ClientService  ,private userAuthService:ClientAuthService,private route :Router) { }
+  constructor(private agenceService:  AgencesService,
+    private clientservice:ClientService  ,
+    private userAuthService:ClientAuthService,
+    private route :Router,
+    private tokem : AuthService) { }
   
   public agences!: agences[];
 
@@ -29,11 +34,11 @@ export class AuthentificationComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  goToConn(pageName: string): void{
+  // goToConn(pageName: string): void{
   
-    this.router.navigate([`${pageName}`]);
+  //   this.router.navigate([`${pageName}`]);
 
-  }
+  // }
 
   public Search(homeform: NgForm){
     //stringify: convert javascript data to json-formatted string
@@ -73,9 +78,12 @@ export class AuthentificationComponent implements OnInit {
             this.clientservice.login(homeform.value).subscribe(
               (response: any) => {
               
-        
+                console.log(response)
+                 
                 const role = response.roles[0];
+                const token =Object.values(response)[4]
                 if (role === 'ROLE_CLIENT') {
+                 localStorage.setItem('token',String(Object.values(response)[4]))
                   this.route.navigate(['/Profile']);
                 } else {
                   this.route.navigate(['/Authentification']);
@@ -87,4 +95,7 @@ export class AuthentificationComponent implements OnInit {
               }
             );
     }
+
+
+ 
   }
