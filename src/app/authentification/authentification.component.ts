@@ -5,10 +5,11 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { agences } from '../model/agences.model';
 import { AgencesService } from '../config/agences.service';
-import { Client } from '../creanciers/Client';
+import { Client } from '../model/client.model';
 import { search } from './search';
 import { ClientService } from '../services/client.service';
 import { AuthService } from '../config/auth.service';
+import { ProfileService } from '../config/profile.service';
 
 @Component({
   selector: 'app-authentification',
@@ -16,21 +17,25 @@ import { AuthService } from '../config/auth.service';
   styleUrls: ['./authentification.component.css']
 })
 export class AuthentificationComponent implements OnInit {
-  router: any;
+
   username!: string;
   password!: string;
   message='';
   public search : search = new search();
+  public connectedClientId : Number = new Number();
+  public connectedClient: Client = new Client();
+  client : Client = new Client();
 
   constructor(private agenceService:  AgencesService,
     private clientservice:ClientService  ,
     private userAuthService:ClientAuthService,
     private route :Router,
-    private tokem : AuthService) { }
+    private tokem : AuthService,
+    private profileService: ProfileService) { }
   
   public agences!: agences[];
 
-  client = new Client();
+ 
   ngOnInit(): void {
   }
   
@@ -74,21 +79,44 @@ export class AuthentificationComponent implements OnInit {
 
     //   )
     // }
+
+    /*public getClientById(id : Number) : Client|any{
+
+      
+      )
+
+    }*/
     login(homeform: NgForm){
             this.clientservice.login(homeform.value).subscribe(
               (response: any) => {
               
+
                 console.log(response)
-                 
+               
                 const role = response.roles[0];
                 const token =Object.values(response)[4]
                 if (role === 'ROLE_CLIENT') {
-                 localStorage.setItem('token',String(Object.values(response)[4]))
-                  this.route.navigate(['/Profile']);
+
+                
+                 localStorage.setItem('token',String(token))
+                 this.connectedClientId=response.id;
+                 
+                 this.clientservice.getClientById(this.connectedClientId).subscribe((response:Client | any) =>
+                {
+                    console.log(response)
+                    this.connectedClient = response
+                    console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiotoooooooooooo")
+                    console.log(this.connectedClient)
+                    console.log("ouioouiouiouiouiouiouiouio")
+                    console.log(this.connectedClient)
+                    this.route.navigate(['/Profile']);
+                    this.profileService.setClient(this.connectedClient)
+                })
+                
                 } else {
                   this.route.navigate(['/Authentification']);
                 }
-                console.log(this.userAuthService.getToken());
+                // console.log(this.userAuthService.getToken());
               },
               (error) => {
                 console.log(error);

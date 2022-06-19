@@ -22,7 +22,7 @@ import { Route, Router } from "@angular/router";
 
        logOut(){
         localStorage.removeItem('token')
-        this.router.navigate(['/Authentification'])
+        this.router.navigate([''])
        }
       
       }

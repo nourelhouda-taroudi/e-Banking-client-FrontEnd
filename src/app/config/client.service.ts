@@ -27,8 +27,10 @@ export class ClientService {
     return this.http.delete(environment.backendHost+"/customers/"+id);
   }
 
-  public getClientById(id :any):Observable<Client>{
-    return this.http.get<Client>(`http://localhost:8090/client/${id}`)
+ 
+
+  public getClientByIdUser(id :any):Observable<Client>{
+    return this.http.get<Client>(`http://localhost:8090/client/find/${id}`)
   }
 
   public getClientByName(name :any):Observable<Client>{

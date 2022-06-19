@@ -48,15 +48,11 @@
                     </div>
     
                     <form action="/creanciers"  #form="ngForm" (submit)="save(form.value)">
-                      <div class="form-outline mb-4">
-                        
-                        <input type="string" placeholder="Source  RIB"  ngModel name="account1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          
-                      </div>
+                     
     
                     <div class="form-outline mb-4">
                         
-                      <input type="string" placeholder=" Distination RIB"  ngModel name="account1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input type="string" placeholder=" Distination RIB"  ngModel name="account2" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         
                     </div>
                     <div class="form-outline mb-4">
@@ -69,7 +65,7 @@
 
                   <div class="form-outline mb-4">
                         
-                    <input type="string" placeholder="Your Code"  ngModel name="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="password" placeholder="Your Code"  ngModel name="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       
                   </div>
                 

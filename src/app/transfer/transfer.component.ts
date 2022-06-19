@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AccountsService } from '../config/account.service';
-import { ClientService } from '../config/client.service';
+
+import { ProfileService } from '../config/profile.service';
 import { AccountDetails } from '../model/account.model';
+import { Client } from '../model/client.model';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-transfer',
@@ -9,48 +13,46 @@ import { AccountDetails } from '../model/account.model';
   styleUrls: ['./transfer.component.css']
 })
 export class TransferComponent implements OnInit {
-  response: any;
 
-  constructor(private accountService:AccountsService, private clientService: ClientService) { }
+  public connectedClient: Client = new Client();
 
+  constructor(
+    private accountService:AccountsService,
+    private clientService: ClientService,
+    private profileService:ProfileService
+    ){ }
 
 
   ngOnInit(): void {
+    this.connectedClient= this.profileService.getClient()
+
   }
-
-
- 
 
   save(data : any){
 
-    this.accountService
-    .getAccountByClient(1)
-    .subscribe((response : {}) =>{
-
-
-
-      for(let  i of Object.values(response)){
-
-    
-            
+        this.clientService
+        .getUserById(Object.values(this.connectedClient)[0])
+        .subscribe((response: any) => {
+        this.accountService
+        .getAccountByClient(Number(Object.values(response)[0]))
+        .subscribe((response : {}) =>{
+        const accountSource= String(Object.values(response)[0]);
+        const accountDestination= String(Object.values(data)[0]);
+        const amount= Number(Object.values(data)[1]);
+        const code =Number(Object.values(data)[2]);
+        if(Object.values(response)[1] == code){
+        this.accountService
+        .transfer(accountSource,accountDestination,amount)
+        .subscribe((responce) =>{
+        }
+        )
+      }else{
+        console.log("bad codeeee")
       }
- 
-         }
     
+      })
+      })
    
-    )
- 
-    const accountSource= String(Object.values(data)[0]);
-    const accountDestination= String(Object.values(data)[1]);
-    const amount= Number(Object.values(data)[2]);
-   
-    this.accountService
-    .transfer(accountSource,accountDestination,amount)
-    .subscribe((responce) =>{
-      console.log(responce)
-    }
-    )
-
     
   }
 }

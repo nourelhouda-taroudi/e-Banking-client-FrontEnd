@@ -6,7 +6,6 @@ import { ClientHomeComponent } from './client-home/client-home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
-
 import { HistoriqueComponent } from './historique/historique.component';
 import { CreanciersComponent } from './creanciers/creanciers.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -39,7 +38,7 @@ const routes: Routes= [
 
 
 { 
-  path: 'historique/:id' ,   component: HistoriqueComponent,
+  path: 'historique' ,   component: HistoriqueComponent,
   canActivate:[AuthGuard]
 },
 { 

@@ -21,10 +21,16 @@ export class ValidationComponent implements OnInit {
     second:string
   } 
 
-  client: Client={
-    name: '',
-    email: ''
-  }
+  // client: Client={
+  //   id: 0,
+  //   username: '',
+
+  //   email: '',
+  //   password: '',
+  //   birthday: undefined,
+  //   idcard: 0,
+  //   phoneNumber: 0
+  // }
   constructor(
     @Optional() private route : ActivatedRoute,
    @Optional() private service:AgencesService,
@@ -71,10 +77,18 @@ export class ValidationComponent implements OnInit {
       (response: {}) =>{
         console.log("client"+ Object.values(response) )
 
-     this.client={
-       name:`${Object.values(response)[0]}`,
-       email:`${Object.values(response)[1]}`
-     }
+//      this.client={
+//       id: 0,
+//     username:`${Object.values(response)[0]}`,
+   
+
+//       password: '',
+//       birthday: undefined,
+//  idcard:0,
+//       phoneNumber: 0,
+     
+//        email:`${Object.values(response)[1]}`
+//      }
 
         this.accountservice.getAccountByClient(1).subscribe((resp :{}) =>
         console.log(Object.values(resp)[1])

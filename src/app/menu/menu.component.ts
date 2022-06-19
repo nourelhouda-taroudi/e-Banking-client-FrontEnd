@@ -14,8 +14,5 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
- logou(){
-  this.clientauthservice.clear();
-  this.router.navigate(["/"])
- }
+
 }
