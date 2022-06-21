@@ -49,7 +49,7 @@ export class AccountsService {
     return this.http.post(environment.backendHost+"/accounts/credit",data,{headers  : this.headers});
   }
 
-  public transfer(accountSource: string,accountDestination: string, amount : number){
+  public transfer(accountSource: number,accountDestination: number, amount : number){
     let data={accountSource, accountDestination, amount}
     return this.http.post("http://localhost:8090/accounts/transfer",data,{headers  : this.headers});
   }

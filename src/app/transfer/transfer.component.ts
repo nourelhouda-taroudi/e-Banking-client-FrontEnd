@@ -36,8 +36,8 @@ export class TransferComponent implements OnInit {
         this.accountService
         .getAccountByClient(Number(Object.values(response)[0]))
         .subscribe((response : {}) =>{
-        const accountSource= String(Object.values(response)[0]);
-        const accountDestination= String(Object.values(data)[0]);
+        const accountSource= Number(Object.values(response)[2]);
+        const accountDestination= Number(Object.values(data)[0]);
         const amount= Number(Object.values(data)[1]);
         const code =Number(Object.values(data)[2]);
         if(Object.values(response)[1] == code){
