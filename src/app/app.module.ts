@@ -20,6 +20,7 @@ import { ClientAuthService } from './services/client-auth.service';
 import { ClientService } from './services/client.service';
 import { TransferComponent } from './transfer/transfer.component';
 import { AuthGuard } from './auth.guard';
+import { FacturesComponent } from './factures/factures.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AuthGuard } from './auth.guard';
     TransferComponent,
     AddAccountComponent,
     AccountsComponent,
+    FacturesComponent,
     
 
   ],
