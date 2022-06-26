@@ -23,6 +23,10 @@ export class AccountsService {
   public getAccount(accountId : string, page : number, size : number):Observable<AccountDetails>{
     return this.http.get<AccountDetails>(environment.backendHost+"/accounts/"+accountId+"/pageOperations?page="+page+"&size="+size);
   }
+
+  public changePassword(id:number,password: any){
+    return this.http.put(`http://localhost:8090/client/${id}/password`,password,{headers  : this.headers});
+  }
   public getAccountByClient(id :number):Observable<any>{
     return this.http.get<any>(`http://localhost:8090/${id}/accounts`,{headers  : this.headers})
   }

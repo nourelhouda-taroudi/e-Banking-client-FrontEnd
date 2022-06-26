@@ -22,28 +22,30 @@ const routes: Routes= [
   { path: '', component: ClientHomeComponent},
 
   { path: 'Menu', component: MenuComponent,
-  canActivate:[AuthGuard]},
+  //canActivate:[AuthGuard]
+},
 
   { path: 'Profile', component: ProfileComponent,
-  canActivate:[AuthGuard],
+  //canActivate:[AuthGuard],
 
 
 },
 
 
   {path: 'updatePassword' ,   component: ChangePasswordComponent,
-  canActivate:[AuthGuard]},
+   //canActivate:[AuthGuard]
+  },
 
 
 
 
 { 
   path: 'historique' ,   component: HistoriqueComponent,
-  canActivate:[AuthGuard]
+  //canActivate:[AuthGuard]
 },
 { 
   path: 'creanciers' ,   component: CreanciersComponent,
-  canActivate:[AuthGuard]
+ // canActivate:[AuthGuard]
 },
 { 
   path: 'transfer' ,   component: TransferComponent,
@@ -51,21 +53,22 @@ const routes: Routes= [
 },
 { 
   path: 'validation/:id' ,   component: ValidationComponent,
-  canActivate:[AuthGuard]
+  //canActivate:[AuthGuard]
 },
 
 { 
   path: 'transfer' ,   component: TransferComponent,
-  canActivate:[AuthGuard]
+  //canActivate:[AuthGuard]
 },
 { 
   path: 'add_account' ,   component: AddAccountComponent,
-  canActivate:[AuthGuard]
+  //canActivate:[AuthGuard]
 },
 
 { 
   path: 'accounts' ,   component: AccountsComponent,
-  canActivate:[AuthGuard]
+  //
+  //canActivate:[AuthGuard]
 },
 ];
 

@@ -39,11 +39,7 @@ export class AuthentificationComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  // goToConn(pageName: string): void{
-  
-  //   this.router.navigate([`${pageName}`]);
 
-  // }
 
   public Search(homeform: NgForm){
     //stringify: convert javascript data to json-formatted string
@@ -109,6 +105,9 @@ export class AuthentificationComponent implements OnInit {
                     console.log(this.connectedClient)
                     console.log("ouioouiouiouiouiouiouiouio")
                     console.log(this.connectedClient)
+                    if(this.connectedClient.first_time === "not_change"){
+                      this.route.navigate(['/updatePassword']);
+                    }else 
                     this.route.navigate(['/Profile']);
                     this.profileService.setClient(this.connectedClient)
                 })
@@ -116,7 +115,7 @@ export class AuthentificationComponent implements OnInit {
                 } else {
                   this.route.navigate(['/Authentification']);
                 }
-                // console.log(this.userAuthService.getToken());
+               
               },
               (error) => {
                 console.log(error);

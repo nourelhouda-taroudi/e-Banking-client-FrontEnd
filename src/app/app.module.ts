@@ -10,7 +10,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { HttpClientModule} from '@angular/common/http'
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidationComponent } from './validation/validation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -20,6 +20,7 @@ import { ClientAuthService } from './services/client-auth.service';
 import { ClientService } from './services/client.service';
 import { TransferComponent } from './transfer/transfer.component';
 import { AuthGuard } from './auth.guard';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AuthGuard } from './auth.guard';
     TransferComponent,
     AddAccountComponent,
     AccountsComponent,
+   ChangePasswordComponent
     
 
   ],
@@ -42,7 +44,8 @@ import { AuthGuard } from './auth.guard';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [ClientAuthService,ClientService,AuthGuard],
   bootstrap: [AppComponent]

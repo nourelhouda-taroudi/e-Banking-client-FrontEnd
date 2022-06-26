@@ -17,7 +17,7 @@
     <tbody>
    
       <tr  *ngFor="let account of operations"  >
-        <th scope="row"  >{{account.operationDate}}</th>
+        <th scope="row"  >{{account.operationDate  | date: "fullDate"}} </th>
         <th scope="row"  >{{account.type}}</th>
         <td  >{{account.amount}}</td>
         

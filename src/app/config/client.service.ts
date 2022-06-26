@@ -15,7 +15,6 @@ export class ClientService {
     return this.http.get<Array<Client>>(environment.backendHost+"/customers")
   }
 
-  
   public searchClient(keyword : string):Observable<Array<Client>>{
     return this.http.get<Array<Client>>(environment.backendHost+"/customers/search?keyword="+keyword)
   }
@@ -27,8 +26,6 @@ export class ClientService {
     return this.http.delete(environment.backendHost+"/customers/"+id);
   }
 
- 
-
   public getClientByIdUser(id :any):Observable<Client>{
     return this.http.get<Client>(`http://localhost:8090/client/find/${id}`)
   }
@@ -36,4 +33,6 @@ export class ClientService {
   public getClientByName(name :any):Observable<Client>{
     return this.http.get<Client>(`http://localhost:8090/client/${name}`)
   }
+
+  
 }
