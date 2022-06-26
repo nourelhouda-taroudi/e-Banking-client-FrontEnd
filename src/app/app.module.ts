@@ -21,6 +21,7 @@ import { ClientService } from './services/client.service';
 import { TransferComponent } from './transfer/transfer.component';
 import { AuthGuard } from './auth.guard';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { FacturesComponent } from './factures/factures.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     TransferComponent,
     AddAccountComponent,
     AccountsComponent,
-   ChangePasswordComponent
+   ChangePasswordComponent,
+    FacturesComponent,
     
 
   ],

@@ -1,3 +1,4 @@
+import { FacturesComponent } from './factures/factures.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, Routes } from '@angular/router';
@@ -64,6 +65,10 @@ const routes: Routes= [
   path: 'add_account' ,   component: AddAccountComponent,
   //canActivate:[AuthGuard]
 },
+{ 
+  path: 'factures' ,   component: FacturesComponent,
+  canActivate:[AuthGuard]
+},
 
 { 
   path: 'accounts' ,   component: AccountsComponent,
@@ -85,6 +90,7 @@ export const routingComponents = [
    HistoriqueComponent,
    TransferComponent,
    CreanciersComponent,
-  ValidationComponent
+  ValidationComponent,
+  FacturesComponent
   ];
 
