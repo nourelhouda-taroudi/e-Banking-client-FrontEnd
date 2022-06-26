@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+<div class="header">
+  
+    </div>
+    
+    <div class="big">
+        <div class="big">
+            <div class="societe" *ngFor=" let facture of factures">
+                
+                <div *ngIf="facture.payed == false">
+                    <div style="margin-top: 40px; margin-left:60px;">
+                        <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">{{facture.ref}}</p>
+                        <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">{{facture.prix}}</p>
+                        <input type="hidden" name="id" />
+                        <button  class="btn btn-outline-danger" (click)="pay(facture)">  Payer </button>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

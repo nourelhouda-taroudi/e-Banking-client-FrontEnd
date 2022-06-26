@@ -1,0 +1,98 @@
+<app-menu></app-menu>
+<!-- <div  class="div">
+<h1>
+    Demande de virement 
+</h1>
+<form  #form="ngForm" (submit)="save(form.value)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">N de votre compte</label>
+      <input type="string" placeholder=" Distination RIB"  ngModel name="account1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+     
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">N de compte de destinataire</label>
+      <input type="string" class="form-control" id="exampleInputPassword1"  ngModel name="account2">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Montant a transferer</label>
+        <input type="number" class="form-control" id="exampleInputPassword1"  ngModel name="amount">
+      </div>
+
+      <div style="width: 200px"   id="code">
+        <label for="inputPassword5" class="form-label">Veuillez entrer votre code</label>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+        </div>
+   
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</div> -->
+
+
+
+
+
+
+
+<section class="h-100 gradient-form" style="background-color: rgba(24, 72, 215, 0.163);">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+    
+                    <div class="text-center">
+                    <h1 style="color:red;margin-bottom:40px;">Begin your transfer </h1>
+                    
+                    </div>
+    
+                    <form action="/creanciers"  #form="ngForm" (submit)="save(form.value)">
+                     
+    
+                    <div class="form-outline mb-4">
+                        
+                      <input type="string" placeholder=" Distination RIB"  ngModel name="account2" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+                    </div>
+                    <div class="form-outline mb-4">
+                        
+                      <input type="number"  ngModel name="amount" id="form2Example22" class="form-control" 
+                          placeholder=" Amount" required />
+      
+                  </div>
+
+
+                  <div class="form-outline mb-4">
+                        
+                    <input type="password" placeholder="Your Code"  ngModel name="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      
+                  </div>
+                
+    
+                    <div class="text-center pt-1 mb-5 pb-1">
+                       
+                      <button class="btn btn-outline-danger" type="submit">Continue</button>
+                        
+                    </div>
+    
+                </form>
+
+            </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <img src="../../assets/logoo.png"/>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</section>
+
+
+    
+    
+  

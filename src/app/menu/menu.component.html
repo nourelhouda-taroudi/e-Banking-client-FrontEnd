@@ -1,0 +1,17 @@
+
+<h2 style="display: inline;"> E-Bank</h2>
+<form style="display: inline;margin-left: 95%;" action="/Authentification">
+    <button class="btn btn-outline-danger " style="margin-left: -30px;" routerLink="/"  type="submit" (click)="authService.logOut()">Log out</button>
+</form>
+
+<nav>
+  
+    <a routerLink="/Profile" routerLinkActive="active" >Profil</a>
+    <a routerLink="/creanciers" routerLinkActive="active" > Acceuil</a>
+    <a routerLink="/transfer" routerLinkActive="active" >Transfer</a>
+	<a routerLink="/updatePassword" routerLinkActive="active" > Update Password</a>
+    <a routerLink="/historique" routerLinkActive="active" >Historic</a>
+  
+	<div class="animation start-home"></div>
+</nav>
+

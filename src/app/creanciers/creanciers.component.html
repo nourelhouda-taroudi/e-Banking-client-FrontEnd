@@ -1,0 +1,16 @@
+<app-menu></app-menu>
+
+
+<div class="big">
+    <div class="big">
+        <div class="societe" *ngFor=" let agence of agences">
+            <div style="width: 200px;">
+                <img src="{{agence.image}}"  class="img"> 
+            </div>
+            <div style="margin-top: 40px; margin-left:60px;">
+                <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">{{agence.title}}</p>
+                <a style="font-size: 13px; " class="link" (click)="navigateTo(agence)" >   >{{agence.title}}</a>
+            </div>
+        </div>
+    </div>
+</div>
