@@ -1,8 +1,7 @@
 export interface agences{
     id: number;
-    nom: string;
-    facturation: string;
+    title: string;
     image: string;
-    description: string;
-    choix: string;
+    address: string;
+    service: string;
 }

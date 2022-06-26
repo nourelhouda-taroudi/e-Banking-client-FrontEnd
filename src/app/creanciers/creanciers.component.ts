@@ -6,6 +6,7 @@ import { AgencesService } from '../config/agences.service';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProfileService } from '../config/profile.service';
 
 @Component({
   selector: 'app-creanciers',
@@ -14,18 +15,17 @@ import { Router } from '@angular/router';
 })
 export class CreanciersComponent implements OnInit {
 
-  constructor( private agenceService:  AgencesService, private router: Router) {}
-   
+  constructor( private agenceService:  AgencesService, private router: Router,private profileService: ProfileService) {}
+
   public agences!: agences[];
   edite = false;
 
   creanciers:agences={
     id: 0,
-    nom: '',
-    facturation: '',
+    title: '',
     image: '',
-    description: '',
-    choix: ''
+    address: '',
+    service: ''
   }
 
   ngOnInit(): void {
@@ -42,53 +42,14 @@ export class CreanciersComponent implements OnInit {
       }
     );
   }
-
-  public searchFacture(key: string): void{
-    const results: agences[] = [];
-    console.log(key)
-    for (const agences of this.agences){
-      if (agences.facturation.toLowerCase().indexOf(key.toLowerCase()) !== -1 
-      || agences.description.toLowerCase().indexOf(key.toLowerCase()) !== -1 
-      || agences.nom.indexOf(key) !== -1 ){
-        results.push(agences);
-      }
-    }
-    this.agences = results;
-    console.log(results)
-    if (results.length === 0 || !key){
-      this.getAgences();
-    }
-  }
-
- 
-    public onChange(event: any): void {  //event will give you full breif of action
-      const choix = event.target.value;
-      console.log(choix);
-      const results: agences[] = [];
-      for (const agences of this.agences){
-        if (agences.choix.toLocaleLowerCase().indexOf(choix.toLocaleLowerCase()) !== -1 ){
-          results.push(agences);
-         
-        }
-      }
-      this.agences = results;
-      this.onChange(event);
-      if (results.length === 0 || !choix){
-        this.getAgences();
-      }
-   
-    }
-
-
     navigateTo(agence:any){
       this.creanciers=agence
-      console.log(this.creanciers.id)
+      this.profileService.setAgence(this.creanciers)
+      this.router.navigate(['/factures'])
 
-      this.router.navigate(['payment',this.creanciers.id])
-      
    }
 
-   
-  
+
+
 
 }

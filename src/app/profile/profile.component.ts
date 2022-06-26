@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.connectedClient= this.profileService.getClient()
+    console.log(this.connectedClient);
   }
 
  

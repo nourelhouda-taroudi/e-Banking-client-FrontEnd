@@ -23,16 +23,9 @@ export class HistoriqueComponent implements OnInit {
      private clientService: ClientService) { }
 
   ngOnInit(): void {
-
-    // this.route.paramMap.subscribe((parameterMap) => {
-    //   const id = String(parameterMap.get('id'));
-    //   this.getAssoci(id);
-    //   console.log("idd is "+id);
-    // });
-
     this.connectedClient= this.profileService.getClient()
     console.log(this.connectedClient)
-  this.getAssoci()
+    this.getAssoci()
   }
 
   data:AccountOperation={
@@ -43,14 +36,13 @@ export class HistoriqueComponent implements OnInit {
   }
    operations!:AccountOperation[];
    account!:AccountDetails;
-  
+
   getAssoci() {
 
     console.log(Object.values(this.connectedClient)[0])
     this.clientService
     .getUserById(Object.values(this.connectedClient)[0])
     .subscribe((response: any) => {
-      console.log("hooohoohoo"+Number(response))
       this.service.getAccountByClient(Number(Object.values(response)[0])).subscribe(
       (response) => {
         this.account = response;
@@ -59,16 +51,11 @@ export class HistoriqueComponent implements OnInit {
           amount:0,
           type:'',
          account_id:String(Object.values(response)[0])
-         
         }
-      
-
         this.service.getAccountOperations(this.data.account_id).subscribe((respon: AccountOperation[]) => {
               this.operations = respon;
              console.log(this.operations)
-             
             },)
-  
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

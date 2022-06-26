@@ -22,19 +22,11 @@ export class ChangePasswordComponent implements OnInit {
     this.connectedClient= this.profileService.getClient()
   }
 
-
-  goToConn(pageName: string): void{
-  
-    this.router.navigate([`${pageName}`]);
-
-  }
-
   change_Password(data:any){
     console.log(data)
     if(data != '' ){
       this.service.changePassword(Object.values(this.connectedClient)[0],data).subscribe(
         (response)=>{
-         
            console.log("changed")
            this.router.navigate(['/creanciers']);
         }
@@ -44,5 +36,5 @@ export class ChangePasswordComponent implements OnInit {
 }
 
 
-    
+
 }

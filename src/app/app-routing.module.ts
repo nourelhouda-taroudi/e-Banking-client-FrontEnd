@@ -2,19 +2,14 @@ import { FacturesComponent } from './factures/factures.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, Routes } from '@angular/router';
-
 import { ClientHomeComponent } from './client-home/client-home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { CreanciersComponent } from './creanciers/creanciers.component';
-import { PaymentComponent } from './payment/payment.component';
-import { ValidationComponent } from './validation/validation.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { TransferComponent } from './transfer/transfer.component';
-import { AddAccountComponent } from './add-account/add-account.component';
-import { AccountsComponent } from './accounts/accounts.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes= [
@@ -23,57 +18,35 @@ const routes: Routes= [
   { path: '', component: ClientHomeComponent},
 
   { path: 'Menu', component: MenuComponent,
-  //canActivate:[AuthGuard]
-},
+  canActivate:[AuthGuard]},
 
   { path: 'Profile', component: ProfileComponent,
-  //canActivate:[AuthGuard],
-
-
-},
-
+  canActivate:[AuthGuard],},
 
   {path: 'updatePassword' ,   component: ChangePasswordComponent,
-   //canActivate:[AuthGuard]
+   canActivate:[AuthGuard]
   },
-
-
-
-
-{ 
+{
   path: 'historique' ,   component: HistoriqueComponent,
-  //canActivate:[AuthGuard]
+  canActivate:[AuthGuard]
 },
-{ 
+{
   path: 'creanciers' ,   component: CreanciersComponent,
- // canActivate:[AuthGuard]
+   canActivate:[AuthGuard]
 },
-{ 
+{
   path: 'transfer' ,   component: TransferComponent,
   canActivate:[AuthGuard]
 },
-{ 
-  path: 'validation/:id' ,   component: ValidationComponent,
-  //canActivate:[AuthGuard]
+
+{
+  path: 'transfer' ,   component: TransferComponent,
+  canActivate:[AuthGuard]
 },
 
-{ 
-  path: 'transfer' ,   component: TransferComponent,
-  //canActivate:[AuthGuard]
-},
-{ 
-  path: 'add_account' ,   component: AddAccountComponent,
-  //canActivate:[AuthGuard]
-},
-{ 
+{
   path: 'factures' ,   component: FacturesComponent,
   canActivate:[AuthGuard]
-},
-
-{ 
-  path: 'accounts' ,   component: AccountsComponent,
-  //
-  //canActivate:[AuthGuard]
 },
 ];
 
@@ -90,7 +63,6 @@ export const routingComponents = [
    HistoriqueComponent,
    TransferComponent,
    CreanciersComponent,
-  ValidationComponent,
   FacturesComponent
   ];
 

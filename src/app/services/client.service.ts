@@ -11,15 +11,13 @@ import { ClientAuthService } from './client-auth.service';
 export class ClientService {
 
   auth_token = localStorage.getItem('token');
-  
+
    headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.auth_token}`
   });
-  
+
   requestOptions = { headers: this.headers };
-
-
   PATH_OF_API = 'http://localhost:8090';
   private loggedIn = new BehaviorSubject<boolean>(this.token.loggedIn());
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
@@ -42,5 +40,5 @@ export class ClientService {
   public getUserById(id :any):Observable<Client>{
     return this.httpclient.get<Client>(`http://localhost:8090/client/find/${id}`,{headers  : this.headers})
   }
-  
+
 }
