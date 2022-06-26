@@ -9,11 +9,20 @@ import {Client} from "../creanciers/Client";
 })
 export class AgencesService {
 
+  auth_token = localStorage.getItem('token');
+  
+  headers = new HttpHeaders({
+   'Content-Type': 'application/json',
+   'Authorization': `Bearer ${this.auth_token}`
+ });
+ 
+ requestOptions = { headers: this.headers };
+  
 
     constructor( private http:  HttpClient){}
 
     public getAgences(): Observable<agences[]>{
-        return this.http.get<agences[]>( ' http://localhost:8090/users/all');
+        return this.http.get<agences[]>( ' http://localhost:8090/users/all',{headers  : this.headers});
     }
 
   

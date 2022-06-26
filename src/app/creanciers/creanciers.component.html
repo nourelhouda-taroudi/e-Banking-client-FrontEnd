@@ -2,7 +2,7 @@
 <div class="header">
 <select name="pets" id="pet-select" style="width: 1100px; height: 25px; margin-top: 50px; margin-left: 70px;"  (change)="onChange($event)">
     <option value="" >Tous les categories</option>
-    <option  *ngFor=" let agence of agences" [value]="agence.choix">{{agence.choix}}</option>
+    <option  *ngFor=" let agence of agences" [value]="agence.service">{{agence.service}}</option>
   
    
 </select>
@@ -19,8 +19,8 @@
                 <img src="{{agence.image}}"  class="img"> 
             </div>
             <div style="margin-top: 40px; margin-left:60px;">
-                <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">{{agence.description}}</p>
-                <a style="font-size: 13px; " class="link" (click)="navigateTo(agence)" >   >{{agence.facturation}}</a>
+                <p style="  font-family:'Courier New', Courier, monospace; font-size: 20px;color: gray; text-align: center;">{{agence.title}}</p>
+                <a style="font-size: 13px; " class="link" (click)="navigateTo(agence)" >   >{{agence.title}}</a>
             </div>
         </div>
     </div>

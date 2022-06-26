@@ -14,11 +14,10 @@ import { ClientService } from '../config/client.service';
 export class PaymentComponent implements OnInit {
   creanciers:agences={
     id: 0,
-    nom: '',
-    facturation: '',
+    title: '',
     image: '',
-    description: '',
-    choix: ''
+    address: '',
+    service: ''
 
   }
  var!:ValidationComponent;
