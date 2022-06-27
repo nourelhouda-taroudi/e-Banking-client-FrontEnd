@@ -42,7 +42,7 @@ export class AuthentificationComponent implements OnInit {
             this.clientservice.login(homeform.value).subscribe(
               (response: any) => {
                 const role = response.roles[0];
-                const token =Object.values(response)[4]
+                const token =response.accessToken;
                 if (role === 'ROLE_CLIENT') {
                  localStorage.setItem('token',String(token))
                  this.connectedClientId=response.id;
