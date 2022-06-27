@@ -31,9 +31,9 @@ export class FactureService {
     return this.http.get<factures[]>(`http://localhost:8090/client/facture/${id_client}/${name_agence}`, { headers: this.headers });
   }
 
-  public updateFacture(id_facture: Number) {
-    return this.http.put(`http://localhost:8090/client/facture/update/${id_facture}`,{ headers: this.headers });
-   
+  public updateFacture(facture:any,id_facture: Number): Observable<factures> {
+    return this.http.put<factures>(`http://localhost:8090/client/facture/update/${id_facture}`,facture,{ headers: this.headers });
+
   }
 
 

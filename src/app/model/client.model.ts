@@ -6,14 +6,14 @@ export class Client {
 
   username:String = new String() ;
 
- 
+
 
   email:String = new String() ;
 
   password:String = new String() ;
 
   birthday?:Date;
-    
+
 idcard : Number = new Number();
 
 
@@ -30,4 +30,9 @@ immatriculation:String = new String() ;
 patente:String = new String() ;
 
 roles: role = new role();
+
+
+
+  IDCard!:number;
+
   }

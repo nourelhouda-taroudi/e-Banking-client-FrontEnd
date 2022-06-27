@@ -34,32 +34,36 @@ export class AuthentificationComponent implements OnInit {
     private profileService: ProfileService) { }
     public agences!: agences[];
 
- 
+
   ngOnInit(): void {
   }
 
     login(homeform: NgForm){
             this.clientservice.login(homeform.value).subscribe(
               (response: any) => {
+                console.log(response)
                 const role = response.roles[0];
-                const token =Object.values(response)[4]
+                const token =Object.values(response)[5]
+                console.log(token)
                 if (role === 'ROLE_CLIENT') {
                  localStorage.setItem('token',String(token))
+                 console.log( localStorage.setItem('token',String(token)))
                  this.connectedClientId=response.id;
                  this.clientservice.getClientById(this.connectedClientId).subscribe((response:Client | any) =>
                 {
+                  console.log(this.connectedClient)
                     this.connectedClient = response
                     if(this.connectedClient.first_time === "not_change"){
                       this.route.navigate(['/updatePassword']);
-                    }else 
+                    }else
                     this.route.navigate(['/Profile']);
                     this.profileService.setClient(this.connectedClient)
                 })
-                
+
                 } else {
                   this.route.navigate(['/Authentification']);
                 }
-               
+
               },
               (error) => {
                 console.log(error);
@@ -68,5 +72,5 @@ export class AuthentificationComponent implements OnInit {
     }
 
 
- 
+
   }

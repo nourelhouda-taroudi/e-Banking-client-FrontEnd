@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {AccountDetails} from "../model/account.model";
 import { Client } from '../model/client.model';
+import { factures } from '../model/facture.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +12,12 @@ import { Client } from '../model/client.model';
 export class AccountsService {
 
    auth_token = localStorage.getItem('token');
-  
+
    headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.auth_token}`
   });
-  
+
   requestOptions = { headers: this.headers };
   constructor(private http : HttpClient) { }
 
@@ -44,11 +45,11 @@ export class AccountsService {
   }
 
 
-  public debit(accountId : string, amount : number){
+  public debit(accountId : number, amount : number){
     let data={accountId : accountId, amount : amount}
     return this.http.post("http://localhost:8090/accounts/debit",data,{headers  : this.headers});
   }
-  public credit(accountId : string, amount : number, description:string){
+  public credit(accountId : number, amount : number, description:string){
     let data={accountId : accountId, amount : amount, description : description}
     return this.http.post(environment.backendHost+"/accounts/credit",data,{headers  : this.headers});
   }
@@ -57,4 +58,8 @@ export class AccountsService {
     let data={accountSource, accountDestination, amount}
     return this.http.post("http://localhost:8090/accounts/transfer",data,{headers  : this.headers});
   }
+
+ 
+
+
 }
